@@ -1,0 +1,3 @@
+User-agent: *
+Allow: /
+Sitemap: https://voalt.co/sitemap.xml
