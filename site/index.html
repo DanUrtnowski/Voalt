@@ -1,66 +1,173 @@
 <!doctype html>
-<html lang="en">
+<html lang="en" data-theme="dark">
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="theme-color" content="#080f20">
-  <meta name="description" content="Voalt is an emerging network for communities, independent publications and research tools. Energize Your Intelligence.">
+  <meta name="theme-color" content="#081d3b">
+  <meta name="description" content="Voalt — Energize Your Intelligence. Software, intelligence, and practical solutions built to turn ideas into working systems, by Daniel Urtnowski, sole proprietor in San Diego.">
   <meta property="og:type" content="website">
   <meta property="og:title" content="Voalt — Energize Your Intelligence">
-  <meta property="og:description" content="An emerging network connecting communities, publications and evidence-based research.">
+  <meta property="og:description" content="Software, intelligence, and practical solutions built to turn ideas into working systems.">
   <meta property="og:url" content="https://voalt.co/">
   <link rel="canonical" href="https://voalt.co/">
   <link rel="icon" type="image/svg+xml" href="/favicon.svg">
   <link rel="stylesheet" href="/styles.css">
+  <script src="/script.js" defer></script>
   <title>Voalt — Energize Your Intelligence</title>
 </head>
 <body>
   <a class="skip" href="#main">Skip to content</a>
+  <canvas id="valence" aria-hidden="true"></canvas>
   <div class="backdrop" aria-hidden="true"></div>
+
   <header class="site-header wrap">
-    <a class="brand" href="/" aria-label="Voalt home">
-      <span class="mark" aria-hidden="true"><svg viewBox="0 0 40 40" fill="none"><path d="M8 7h8l5 15 5-15h8L23 34h-6L8 7Z" stroke="currentColor" stroke-width="2.8" stroke-linejoin="round"/><path d="M20.5 5.5v10.7" stroke="#4FE3DB" stroke-width="3" stroke-linecap="round"/></svg></span>
+    <a class="brand" href="#top" aria-label="Voalt home">
+      <span class="mark" aria-hidden="true"><svg viewBox="0 0 40 40" fill="none"><path d="M8 7h8l5 15 5-15h8L23 34h-6L8 7Z" stroke="currentColor" stroke-width="2.8" stroke-linejoin="round"/><path d="M20.5 5.5v10.7" stroke="#4fe3db" stroke-width="3" stroke-linecap="round"/></svg></span>
       <span>VOALT<span class="brand-dot">.</span></span>
     </a>
-    <nav aria-label="Main navigation">
-      <a href="#vision">The vision</a>
-      <a href="#approach">How it works</a>
-      <a class="nav-link" href="https://github.com/DanUrtnowski/Voalt" target="_blank" rel="noopener noreferrer">On GitHub <span aria-hidden="true">↗</span></a>
+    <button class="menu-button" type="button" aria-expanded="false" aria-controls="main-nav" aria-label="Menu">
+      <span aria-hidden="true"></span><span aria-hidden="true"></span><span aria-hidden="true"></span>
+    </button>
+    <nav id="main-nav" aria-label="Main navigation">
+      <a href="#explore">Explore</a>
+      <a href="#about">About</a>
+      <a href="#contact">Contact</a>
+      <button class="theme-toggle" type="button" aria-label="Switch to light mode" aria-pressed="false">
+        <span class="theme-icon" aria-hidden="true">☾</span>
+        <span class="theme-label">Dark</span>
+      </button>
     </nav>
   </header>
+
   <main id="main">
-    <section class="hero wrap" aria-labelledby="hero-title">
+    <section class="hero wrap" id="top" aria-labelledby="hero-title">
       <div class="hero-copy">
-        <p class="eyebrow"><span class="signal" aria-hidden="true"></span> A new kind of knowledge network is taking shape</p>
-        <h1 id="hero-title">Energize your <em>intelligence.</em></h1>
-        <p class="lead">Voalt is being built to bring human insight, independent publishing, and automated research into one connected space—without losing track of the evidence.</p>
+        <p class="eyebrow"><span class="signal" aria-hidden="true"></span> Voalt · Independent software · San Diego</p>
+        <h1 id="hero-title">VOALT<br><em>Energize Your Intelligence.</em></h1>
+        <p class="lead">Software, intelligence, and practical solutions built to turn ideas into working systems.</p>
+        <p class="identity">Voalt is the software brand of <strong>Daniel Urtnowski, sole proprietor</strong> — one person, designing, building, testing, and supporting the work. No separate company, no employees, no partners.</p>
         <div class="hero-actions">
-          <a class="button button-primary" href="#vision">Explore the vision <span aria-hidden="true">↘</span></a>
-          <a class="button button-secondary" href="https://github.com/DanUrtnowski/Voalt" target="_blank" rel="noopener noreferrer">Follow development <span aria-hidden="true">↗</span></a>
+          <a class="button button-primary" href="#explore">Explore Voalt <span aria-hidden="true">↘</span></a>
+          <a class="button button-secondary" href="#contact">Contact Daniel <span aria-hidden="true">↘</span></a>
         </div>
-        <p class="launch-note"><span aria-hidden="true">●</span> Early development · Public community features are not yet open</p>
+        <p class="launch-note"><span aria-hidden="true">●</span> Temporary landing page · No accounts · No tracking · Nothing for sale yet</p>
       </div>
       <div class="hero-graphic" aria-hidden="true">
         <div class="orbit orbit-one"></div><div class="orbit orbit-two"></div><div class="orbit orbit-three"></div>
         <span class="node n1"></span><span class="node n2"></span><span class="node n3"></span><span class="node n4"></span><span class="node n5"></span>
         <div class="core">V<span>.</span></div>
-        <span class="diagram-label label-one">Communities</span><span class="diagram-label label-two">Research</span><span class="diagram-label label-three">Publishing</span>
+        <span class="diagram-label label-one">Software</span><span class="diagram-label label-two">Intelligence</span><span class="diagram-label label-three">Civic</span>
       </div>
     </section>
-    <section class="vision section wrap" id="vision" aria-labelledby="vision-heading">
-      <div class="section-lead"><span class="kicker">01 / THE VISION</span><h2 id="vision-heading">Knowledge should connect, not disappear into silos.</h2></div>
-      <p>Useful discoveries happen everywhere—in local reporting, scientific papers, community discussions, and independent investigations. Voalt is designed to help those discoveries find one another, with sources, context, and corrections kept close at hand.</p>
-    </section>
-    <section class="section wrap approach" id="approach" aria-labelledby="approach-heading">
-      <div class="section-heading"><span class="kicker">02 / THE APPROACH</span><h2 id="approach-heading">Built for people and the tools that help them think.</h2></div>
-      <div class="feature-grid">
-        <article class="feature"><span class="feature-number">01</span><div class="feature-glyph" aria-hidden="true">◎</div><h3>Topic-first communities</h3><p>Follow subjects, share perspectives, and discover related ideas across communities.</p></article>
-        <article class="feature"><span class="feature-number">02</span><div class="feature-glyph" aria-hidden="true">⌁</div><h3>Evidence with context</h3><p>Keep attribution, revision history, and corrections connected to what gets published.</p></article>
-        <article class="feature"><span class="feature-number">03</span><div class="feature-glyph" aria-hidden="true">◇</div><h3>Human + automated</h3><p>Bring readers, researchers, and clearly identified automated contributors into a shared information network.</p></article>
+
+    <section class="lanes section wrap" id="explore" aria-labelledby="lanes-heading">
+      <div class="section-heading">
+        <span class="kicker">Explore</span>
+        <h2 id="lanes-heading">Three lanes, one standard: described as it actually is.</h2>
+        <p class="section-intro">Each area is at a different stage. This page says which, rather than rounding up.</p>
+      </div>
+      <div class="lane-grid">
+        <article class="lane">
+          <div class="lane-icon" aria-hidden="true">
+            <svg viewBox="0 0 48 48" fill="none"><rect x="6" y="6" width="15" height="15" rx="3" stroke="currentColor" stroke-width="2.5"/><rect x="27" y="6" width="15" height="15" rx="3" stroke="currentColor" stroke-width="2.5"/><rect x="6" y="27" width="15" height="15" rx="3" stroke="currentColor" stroke-width="2.5"/><rect x="27" y="27" width="15" height="15" rx="3" stroke="#4fe3db" stroke-width="2.5"/></svg>
+          </div>
+          <span class="lane-number">01</span>
+          <h3>Software &amp; Applications</h3>
+          <p>Independently developed applications, productivity tools, creative software, and emerging platforms — built in small, testable pieces.</p>
+          <a class="lane-link" href="#building">See the work <span aria-hidden="true">→</span></a>
+        </article>
+        <article class="lane">
+          <div class="lane-icon" aria-hidden="true">
+            <svg viewBox="0 0 48 48" fill="none"><circle cx="24" cy="24" r="6" stroke="#4fe3db" stroke-width="2.5"/><circle cx="10" cy="12" r="4" stroke="currentColor" stroke-width="2.5"/><circle cx="38" cy="12" r="4" stroke="currentColor" stroke-width="2.5"/><circle cx="10" cy="36" r="4" stroke="currentColor" stroke-width="2.5"/><circle cx="38" cy="36" r="4" stroke="currentColor" stroke-width="2.5"/><path d="M20 20 13 15M28 20l7-5M20 28l-7 5M28 28l7 5" stroke="currentColor" stroke-width="2"/></svg>
+          </div>
+          <span class="lane-number">02</span>
+          <h3>Intelligence &amp; Research</h3>
+          <p>Open-source intelligence, structured evidence, research tools, and visualization — systems that turn information into usable understanding, with sources and corrections kept attached.</p>
+          <a class="lane-link" href="#building">See the work <span aria-hidden="true">→</span></a>
+        </article>
+        <article class="lane">
+          <div class="lane-icon" aria-hidden="true">
+            <svg viewBox="0 0 48 48" fill="none"><path d="M24 6 40 14v20L24 42 8 34V14L24 6Z" stroke="currentColor" stroke-width="2.5" stroke-linejoin="round"/><path d="M24 6v36M8 14l16 8 16-8" stroke="currentColor" stroke-width="2"/><circle cx="24" cy="22" r="3.5" stroke="#4fe3db" stroke-width="2.5"/></svg>
+          </div>
+          <span class="lane-number">03</span>
+          <h3>Civic &amp; Custom Solutions</h3>
+          <p>Practical websites, purpose-built digital systems, and custom software — built to a stated need, in stages, without overstating what exists.</p>
+          <a class="lane-link" href="#contact">Talk about a project <span aria-hidden="true">→</span></a>
+        </article>
       </div>
     </section>
-    <section class="outro wrap" aria-labelledby="outro-title"><div><span class="kicker">WHAT'S NEXT</span><h2 id="outro-title">The foundation is being built.</h2><p>This page is the beginning of Voalt's public presence. The platform itself remains in development and testing. Follow the project to see how the network takes shape.</p></div><a class="button button-secondary" href="https://github.com/DanUrtnowski/Voalt" target="_blank" rel="noopener noreferrer">View the public roadmap <span aria-hidden="true">↗</span></a></section>
+
+    <section class="section wrap about" id="about" aria-labelledby="about-heading">
+      <div class="section-lead">
+        <span class="kicker">About</span>
+        <h2 id="about-heading">What Voalt is</h2>
+      </div>
+      <div class="about-body">
+        <p><strong>Brand, not a company.</strong> Voalt is a trade name used by Daniel Urtnowski, sole proprietor. There is no separate legal entity behind it, no employees, no subcontractors, and no partners. Design, development, testing, and support are all the same person. That limits how much can be in flight at once, and it is the honest description of the operation.</p>
+        <p><strong>What is built.</strong> Applied software in three areas: geographic information systems and civic data; evidence and research tooling; creative and practical applications.</p>
+        <p><strong>How it is built.</strong> Small, testable pieces, written and verified by one developer. Claims about the software are meant to be reproducible, not persuasive.</p>
+        <p><strong>Where it stands.</strong> Early. One working prototype runs locally, other work is in progress, and no product is generally available.</p>
+      </div>
+    </section>
+
+    <section class="section wrap building" id="building" aria-labelledby="building-heading">
+      <div class="section-heading">
+        <span class="kicker">What we are building</span>
+        <h2 id="building-heading">Work, and the stage it is at</h2>
+        <p class="section-intro">Updated 12 November 2026. Nothing on this page links to a product you cannot actually open.</p>
+      </div>
+      <div class="work-grid">
+        <article class="work-card">
+          <p class="work-status"><span class="status-dot" aria-hidden="true"></span> Working · local prototype</p>
+          <h3>Civic GIS prototype</h3>
+          <p>An offline-first mapping application: layers and legend, an attribute table, spatial queries over local features, feature editing with undo, GeoJSON import and export, field observation capture, and a read-only connector tested against public ArcGIS REST services.</p>
+          <p>It runs on a local machine. It is not hosted, has no accounts, and holds no municipal data. Its automated test suite passes, and it was built to understand what a municipal GIS workflow actually requires.</p>
+        </article>
+        <article class="work-card">
+          <p class="work-status"><span class="status-dot" aria-hidden="true"></span> In development</p>
+          <h3>Evidence and research tooling</h3>
+          <p>Software for assembling sources, keeping corrections and revisions attached to what they change, and making the difference between a claim and a finding visible.</p>
+          <p>This work is not open to new users. Earlier experiments in this area are closed while the foundations are rebuilt; no sign-up is offered here.</p>
+        </article>
+        <article class="work-card">
+          <p class="work-status"><span class="status-dot" aria-hidden="true"></span> Various stages</p>
+          <h3>Creative and practical applications</h3>
+          <p>Smaller tools and experiments — some finished and used privately, some prototypes, some sketches that may never ship.</p>
+          <p>They are listed here as a category rather than as products, because none of them is ready to be presented as one.</p>
+        </article>
+      </div>
+    </section>
+
+    <section class="section wrap independent" id="independent" aria-labelledby="independent-heading">
+      <div class="section-heading">
+        <span class="kicker">Independent development</span>
+        <h2 id="independent-heading">What is not claimed</h2>
+        <p class="section-intro">Read this before relying on anything above. A short page about unfinished work is only useful if its limits are stated as plainly as its progress.</p>
+      </div>
+      <ul class="claims">
+        <li><strong>Not an Esri partner, reseller, or certified integrator.</strong> Any Esri product named in technical material is used as a reference for interoperability, not as a partnership.</li>
+        <li><strong>No government contract and no government customer.</strong> The City of San Diego has not engaged Voalt, and nothing here implies its review, endorsement, or affiliation.</li>
+        <li><strong>No certifications, audits, or compliance attestations.</strong> No security certification, accessibility certification, or independent audit has been completed.</li>
+        <li><strong>No testimonials, case studies, or client logos.</strong> There are none to show, so none are shown.</li>
+        <li><strong>Not a finished suite.</strong> The software is in progress. Descriptions above are of what exists now, not of a roadmap promise.</li>
+        <li><strong>No tracking on this page.</strong> No analytics, cookies, fonts, scripts, or third-party requests beyond this page's own files. No accounts, no sign-up.</li>
+      </ul>
+    </section>
+
+    <section class="outro wrap" id="contact" aria-labelledby="contact-heading">
+      <div>
+        <span class="kicker">Contact</span>
+        <h2 id="contact-heading">Contact Daniel</h2>
+        <p>Daniel Urtnowski, sole proprietor, San Diego, California. One person reads this address.</p>
+        <p><a class="contact-email" href="mailto:danurtoffice@gmail.com">danurtoffice@gmail.com</a></p>
+      </div>
+      <a class="button button-primary" href="mailto:danurtoffice@gmail.com">Email Daniel <span aria-hidden="true">↗</span></a>
+    </section>
   </main>
-  <footer class="site-footer wrap"><div class="footer-brand">VOALT<span>.</span> <small>Energize Your Intelligence</small></div><p>© 2026 Voalt · A network in progress</p></footer>
+
+  <footer class="site-footer wrap">
+    <div class="footer-brand">VOALT<span>.</span> <small>Energize Your Intelligence</small></div>
+    <p>© 2026 Voalt · Daniel Urtnowski, sole proprietor, San Diego, California · Last updated 12 November 2026 · Static HTML, CSS, and one local script — no tracking.</p>
+  </footer>
 </body>
 </html>
