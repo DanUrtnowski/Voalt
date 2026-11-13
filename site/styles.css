@@ -44,6 +44,21 @@ nav a:hover{color:var(--text)}
 .signal{width:9px;height:9px;display:inline-block;border-radius:50%;background:var(--mint);box-shadow:0 0 0 6px rgba(79,227,219,.12),0 0 24px rgba(79,227,219,.5)}
 h1,h2,h3,p{margin-top:0}
 h1{font-size:clamp(2.9rem,5.6vw,5.4rem);line-height:1.02;letter-spacing:-.04em;margin-bottom:22px}
+.zap-text{display:inline-block;cursor:pointer;-webkit-user-select:none;user-select:none;border-radius:6px;transition:filter .25s ease}
+.zap-text:hover,.zap-text:focus-visible{filter:drop-shadow(0 0 14px rgba(79,227,219,.85)) drop-shadow(0 0 42px rgba(39,215,246,.45))}
+.zap-text:focus-visible{outline:2px solid var(--cyan);outline-offset:6px}
+.zap-text.zapping{animation:zap-flash .45s ease-out}
+@keyframes zap-flash{
+  0%{filter:brightness(1) drop-shadow(0 0 0 rgba(79,227,219,0))}
+  12%{filter:brightness(2.1) drop-shadow(0 0 22px rgba(79,227,219,1)) drop-shadow(0 0 60px rgba(39,215,246,.8));transform:translateX(1px)}
+  25%{filter:brightness(.55) drop-shadow(0 0 6px rgba(79,227,219,.4));transform:translateX(-1px)}
+  40%{filter:brightness(2.4) drop-shadow(0 0 30px rgba(255,255,255,.9)) drop-shadow(0 0 70px rgba(39,215,246,.9));transform:translateX(1px)}
+  62%{filter:brightness(1.15) drop-shadow(0 0 16px rgba(79,227,219,.7));transform:translateX(0)}
+  100%{filter:brightness(1) drop-shadow(0 0 0 rgba(79,227,219,0))}
+}
+h1 em.zap-text{display:block}
+.zap-spark{position:fixed;width:6px;height:6px;border-radius:50%;background:#4fe3db;box-shadow:0 0 10px rgba(79,227,219,.9),0 0 22px rgba(39,215,246,.6);pointer-events:none;z-index:60}
+.brand:hover{filter:drop-shadow(0 0 10px rgba(79,227,219,.6))}
 h1 em{font-style:normal;display:block;font-size:.58em;letter-spacing:-.03em;line-height:1.22;padding-bottom:.12em;margin-bottom:-.12em;background:linear-gradient(120deg,#7fc9ff,#4fe3db);color:transparent;background-clip:text;-webkit-background-clip:text;margin-top:10px}
 html[data-theme="light"] h1 em{background:linear-gradient(120deg,#1d5fc4,#0899bd);color:transparent;background-clip:text;-webkit-background-clip:text}
 .lead{color:var(--text-soft);max-width:580px;font-size:1.16rem;line-height:1.75}
@@ -138,4 +153,5 @@ html[data-theme="light"] .lane{background:linear-gradient(150deg,rgba(255,255,25
   .button:hover,.lane:hover{transform:none}
   #valence{display:none}
   .orbit-two,.node,.core{animation:none}
+  .zap-text,.zap-text:hover,.zap-text:focus-visible{transition:none;filter:none;animation:none}
 }

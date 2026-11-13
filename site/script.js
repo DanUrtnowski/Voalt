@@ -45,6 +45,47 @@
     });
   }
 
+  /* Zap: VOALT and the tagline glow on hover, and zap on click (or Enter/Space).
+     A quick electric flash on the text plus a burst of sparks from the
+     click point. Skipped entirely under prefers-reduced-motion. */
+  var zapReduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  var zapTargets = document.querySelectorAll('.zap-text');
+  function zap(el, x, y) {
+    if (zapReduced || !el) return;
+    el.classList.remove('zapping');
+    void el.offsetWidth; /* restart the animation */
+    el.classList.add('zapping');
+    var rect = el.getBoundingClientRect();
+    var cx = (typeof x === 'number') ? x : rect.left + rect.width / 2;
+    var cy = (typeof y === 'number') ? y : rect.top + rect.height / 2;
+    var colors = ['#4fe3db', '#27d7f6', '#ffffff', '#6ca9ff'];
+    for (var i = 0; i < 16; i++) {
+      var spark = document.createElement('span');
+      spark.className = 'zap-spark';
+      var size = 3 + Math.random() * 5;
+      spark.style.width = size + 'px'; spark.style.height = size + 'px';
+      spark.style.left = cx + 'px'; spark.style.top = cy + 'px';
+      spark.style.background = colors[i % colors.length];
+      document.body.appendChild(spark);
+      var angle = Math.random() * Math.PI * 2, dist = 34 + Math.random() * 90;
+      var dx = Math.cos(angle) * dist, dy = Math.sin(angle) * dist;
+      var anim = spark.animate([
+        { transform: 'translate(-50%,-50%) scale(1)', opacity: 1 },
+        { transform: 'translate(calc(-50% + ' + dx.toFixed(0) + 'px), calc(-50% + ' + dy.toFixed(0) + 'px)) scale(.2)', opacity: 0 }
+      ], { duration: 420 + Math.random() * 260, easing: 'cubic-bezier(.1,.7,.3,1)' });
+      anim.onfinish = (function (s) { return function () { s.remove(); }; })(spark);
+    }
+    window.setTimeout(function () { el.classList.remove('zapping'); }, 500);
+  }
+  for (var z = 0; z < zapTargets.length; z++) {
+    (function (el) {
+      el.addEventListener('click', function (e) { zap(el, e.clientX, e.clientY); });
+      el.addEventListener('keydown', function (e) {
+        if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); zap(el); }
+      });
+    })(zapTargets[z]);
+  }
+
   /* Valence-electron background: drifting particles, orbiting electrons
      around slow nuclei, pulses travelling along the links, and a gentle
      response to the pointer. Canvas only, no network, no libraries.
