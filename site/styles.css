@@ -97,12 +97,6 @@ html[data-theme="light"] .lane{background:linear-gradient(150deg,rgba(255,255,25
 .claims{list-style:none;margin:0;padding:0;display:grid;grid-template-columns:1fr 1fr;gap:14px}
 .claims li{padding:20px 22px;border:1px solid var(--line);border-radius:12px;background:var(--card);color:var(--muted);font-size:.95rem}
 .claims strong{color:var(--text)}
-.outro{display:flex;align-items:end;justify-content:space-between;gap:48px;border:1px solid var(--line);background:linear-gradient(110deg,rgba(18,36,59,.85),rgba(11,21,39,.85));border-radius:16px;padding:40px 48px;margin-bottom:72px;backdrop-filter:blur(10px)}
-html[data-theme="light"] .outro{background:linear-gradient(110deg,rgba(214,236,255,.9),rgba(255,255,255,.9))}
-.outro>div{max-width:620px}
-.outro p{color:var(--muted);margin:16px 0 0}
-.contact-email{color:var(--cyan);font-weight:700;word-break:break-all}
-.outro .button{flex-shrink:0}
 .site-footer{display:flex;align-items:flex-start;justify-content:space-between;padding-block:28px 48px;border-top:1px solid var(--line);gap:20px}
 .footer-brand{font-weight:840;letter-spacing:.12em;white-space:nowrap}
 .footer-brand small{display:inline-block;margin-left:12px;letter-spacing:0;font-weight:400;color:var(--muted)}
